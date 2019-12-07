@@ -5,8 +5,12 @@ class Student
   @username
   @password
 
-  def first_name(name)
+  def first_name=(name)
    @first_name = name 
+  end
+
+  def first_name
+    @first_name
   end
 
   def to_s
@@ -14,7 +18,8 @@ class Student
   end  
 end
 
-alexis = Student.new
-puts alexis
-alexis.first_name("Alexis")
-puts alexis
+student1 = Student.new
+puts student1
+student1.first_name = "Alexis"
+puts student1
+puts student1.first_name

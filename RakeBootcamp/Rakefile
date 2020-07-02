@@ -34,3 +34,26 @@ end
 task :show_current_directory do
   puts "PWD=#{`pwd`}"
 end
+
+task :show_stuff do
+  puts "ENVS = #{ENV["TOTAL"]}"
+end
+
+task :factorial do 
+  n = (ENV['N'] || 10).to_i
+  fact = 1
+  (1..n).each do |i|
+    fact = fact * i
+  end
+  puts "Factorial of #{n} is #{fact}"
+end
+
+task :backup do
+  mkdir_p "backup"
+  cp "Rakefile", "backup/Rakefile"
+  cp_r "app", "backup"
+end
+
+task :git_status do
+  sh "git status"
+end
